@@ -5,8 +5,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'cashbox.views.home', name='home'),
     # url(r'^cashbox/', include('cashbox.foo.urls')),
+    url(r'^$', 'cashbox.views.index', name='index'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

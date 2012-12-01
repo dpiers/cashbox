@@ -7,6 +7,9 @@ ADMINS = (
     ('Daniel Piers', 'danielpiers@gmail.com'),
 )
 
+import os.path
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -106,7 +109,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/project/cashbox/cashbox/templates'
+    '/project/cashbox/cashbox/templates',
+    SITE_ROOT + '/templates'
 )
 
 INSTALLED_APPS = (
@@ -119,7 +123,8 @@ INSTALLED_APPS = (
     'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    'gunicorn'
+    'gunicorn',
+    'cashbox.core',
 )
 
 # A sample logging configuration. The only tangible logging

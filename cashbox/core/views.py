@@ -1,5 +1,7 @@
-from django.shortcuts import render_to_response
+from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    return render_to_response('core/index.html')
+    context = {}
+    return render(request, 'index.html', context)

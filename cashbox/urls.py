@@ -5,7 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('cashbox.core.views',
 
-    url(r'^$', 'index'),
+    url(r'^$', 'landing'),
 )
 
 urlpatterns += patterns('',

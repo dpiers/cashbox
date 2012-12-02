@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>CashBox | Pay Your Part.</title>
+    <title>CashBox | Pay Your Part</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -43,31 +43,25 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><img src="{{ STATIC_URL }}img/logo.png" style="margin-left:10px;"></a>
+          <a class="brand" href="#"><img src="{{ STATIC_URL }}img/logo.png" style="margin-left:-20px;"></a>
           <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right" style="margin:23px 10px 10px 0;">
-            {% load singly %}
-            {% if user.is_authenticated %}
-                <img src="{{ STATIC_URL }}img/daniel-pic.jpg" width="60" height="60" style="margin-right:6px;border:2px solid #FFF;">
-                Logged in as <a href="#" class="navbar-link">{{user.username}}</a>
-            {% else %}
-            <a href="{% singly_login_url 'facebook' %}">Login With Facebook</a>
-            <a href="{% singly_login_url 'twitter' %}">Login With Twitter</a>
-            {% endif %}
-            </p>
+            <p class="navbar-text pull-right" style="margin:15px 10px 0px 0;"> <img src="{{ STATIC_URL }}img/pic-daniel.jpg" width="40" height="40" style="margin-right:6px;border:2px solid #FFF;  -webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers</a> </p>
             <!--<ul class="nav">
               <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>-->
-          </div><!--/.nav-collapse -->
+          </div>
+          <!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
     <div class="container-fluid">
       <div class="row-fluid">
-        <div class="span9" style="margin-top:20px;">
+        <div class="span9">
           <!--<div class="hero-unit">
             =<h1>Hello, Daniel Piers</h1>
             <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
@@ -77,53 +71,108 @@
             <div class="span4">
             <p><img src="{{ STATIC_URL }}img/dash-cb.png"></p>
               <h2>Ski Trip 2012</h2>
-              <p>$213 Due </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
+              <p>$213 due by December 31</p>
+              <img src="{{ STATIC_URL }}img/pic-jade.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-mike.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-jordan.jpg" width="27" height="27" style="margin-right:2px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-ryan.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-kristen.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-katy.jpg" width="27" height="27" style="margin-right:0px;border:1px solid #CCC;">
+              &nbsp;
+                            <p><a style="float:right;"class="btn" href="#">Open</a></p>
             </div><!--/span-->
+            
+            
             <div class="span4">
+            <p><img src="{{ STATIC_URL }}img/dash-cb.png"></p>
+              <h2>Breast Cancer 5k</h2>
+              <p>$1,205 has been raised</p>
+              <img src="{{ STATIC_URL }}img/pic-bri.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-jade.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-sam.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-katy.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-kristen.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-2.png" width="27" height="27" style="margin-right:0px;border:1px solid #CCC;">
+              &nbsp;
+              <p><a style="float:right;"class="btn" href="#">Open</a></p>
+            </div><!--/span-->
+            
+            
+                        <div class="span4">
             <p><img src="{{ STATIC_URL }}img/dash-cb.png"></p>
               <h2>Rent House</h2>
-              <p>Pay This Back Soon</p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
+              <p>$350 due by January 17</p>
+              <img src="{{ STATIC_URL }}img/pic-lamb.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-john.jpg" width="27" height="27" style="margin-right:2px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-ryan.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-daniel.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              &nbsp;
+               
+              <p><a style="margin-top:20px; float:right;"class="btn" href="#">Open</a></p>
             </div><!--/span-->
-            <div class="span4">
-            <p><img src="{{ STATIC_URL }}img/dash-cb.png"></p>
-              <h2>ΛΔK Tshirts</h2>
-              <p>Pay This Back Soon </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
+              </div><!--/row-->
+            
+            
+
+          
+          
           <div class="row-fluid">
             <div class="span4">
             <p><img src="{{ STATIC_URL }}img/dash-cb.png"></p>
-              <h2>Heading</h2>
-              <p>Pay This Back Soon </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
+              <h2>ΛΔK Tshirts</h2>
+              <p>$15 due by March 4</p>
+              <img src="{{ STATIC_URL }}img/pic-jade.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-bri.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-kristen.jpg" width="27" height="27" style="margin-right:2px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-katy.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-sam.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-8.png" width="27" height="27" style="margin-right:0px;border:1px solid #CCC;">
+              &nbsp;
+              <p><a style="float:right;"class="btn" href="#">Open</a></p>
             </div><!--/span-->
+            
+            
             <div class="span4">
             <p><img src="{{ STATIC_URL }}img/dash-cb.png"></p>
-              <h2>Heading</h2>
-              <p>Pay This Back Soon </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
+              <h2>Beer Club</h2>
+              <p>$74 due by January 8</p>
+              <img src="{{ STATIC_URL }}img/pic-lamb.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-luke.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-jordan.jpg" width="27" height="27" style="margin-right:2px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-ryan.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-daniel.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
+              <img src="{{ STATIC_URL }}img/pic-5.png" width="27" height="27" style="margin-right:0px;border:1px solid #CCC;">
+              &nbsp;
+              <p><a style="float:right;"class="btn" href="#">Open</a></p>
             </div><!--/span-->
-            <div class="span4">
+            
+            
+            <div class="span4" style="border: 2px dashed #dadada;">
             <p><img src="{{ STATIC_URL }}img/dash-newcb.png"></p>
-              <h2>New CashBox</h2>
-              <p>Pay This Back Soon </p>
-              <p><a class="btn" href="#">View details &raquo;</a></p>
+              <h2 style="color:#cfcfcf;">New CashBox</h2>
+              <p><a style="margin-top:16px;float:right;"class="btn" href="#">Create</a></p>
             </div><!--/span-->
           </div><!--/row-->
         </div><!--/span-->
+        
+        
             <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Notifications</li>
               <!--<li class="active"><a href="#">Link</a></li>-->
-              <li><a href="#">Daniel Piers paid $210 to Ski Trip 2012.</a></li>
-              <li><a href="#">Daniel Piers created an account!</a></li>
+              <li><a href="#">Jordan Critz paid $213 to Ski Trip 2012.</a></li>
+              <li><a href="#">Jordan Critz created an account!</a></li>
               <li><a href="#">Jade Newby and Caitlian Smith joined Ski Trip 2012.</a></li>
               <li><a href="#">Ski Trip 2012 was created.</a></li>
-              <li><a href="#">Jon Lamb made paid the monthly payment of $175 to Rent House</a></li>
+              <li><a href="#">Jon Lamb made the monthly payment of $175 to Rent House</a></li>
+              <li><a href="#">Rent House was created.</a></li>
+              <li><a href="#">ΛΔK Tshirts was created.</a></li>
+              <li><a href="#">Daniel Piers contributed $75 to Breast Cancer 5k.</a></li>
+              <li><a href="#">Ryan Smith paid $17 to Beer Club.</a></li>
+              <li><a href="#">Beer Club was created.</a></li>
+
+
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -133,7 +182,8 @@
       <hr>
 
       <footer>
-        <p>&copy; CashBox 2012</p>
+       <p style="font-size:12px; text-align: center; float:left;"><a href="#">About Us</a> &nbsp;|&nbsp; <a href="#">The Team</a> &nbsp;|&nbsp; <a href="#">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Use</a> </p>
+        <p style="font-size:12px; text-align: center; float:right;">&copy; CashBox 2012 &nbsp;|&nbsp; A project by <a href="http://www.twitter.com/danielpiers">Daniel Piers</a> and <a href="http://www.twitter.com/ryan_the_smith">Ryan Smith</a> </p>
       </footer>
 
     </div><!--/.fluid-container-->

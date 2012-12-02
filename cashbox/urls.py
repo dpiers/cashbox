@@ -7,6 +7,7 @@ urlpatterns = patterns('cashbox.core.views',
 
     url(r'^$', 'landing'),
     url(r'^hack/$', 'index'),
+    url(r'^logout/$', 'logout'),
 
     url(r'^beta_mailinglist/signup/$', 'ajax_beta_mailing_list_signup'),
     url(r'^email_ryan/$', 'ajax_email_ryan'),

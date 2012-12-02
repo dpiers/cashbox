@@ -6,11 +6,21 @@ from smtplib import SMTP
 from email.mime.text import MIMEText
 
 import requests
+from django.http import HttpResponseRedirect
+from django.contrib.auth import logout as django_logout
 
 
 def index(request):
     context = {}
-    return render(request, 'index.html', context)
+
+    if request.user.is_authenticated():
+        return render(request, 'index.html', context)
+    else:
+        return render(request, 'home_login.html', context)
+
+def logout(request):
+    django_logout(request)
+    return HttpResponseRedirect('/hack/')
 
 def landing(request):
     context = {}
@@ -18,7 +28,7 @@ def landing(request):
 
 def ajax_beta_mailing_list_signup(request):
     email = request.POST.get('email')
-
+    
     try:
         response = requests.post(
                     "https://api.mailgun.net/v2/lists/beta@cashbox.mailgun.org/members",

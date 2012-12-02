@@ -108,6 +108,8 @@ AUTHENTICATION_BACKENDS = (
 SINGLY_CLIENT_ID = "8d3f27a3e6cc74443026444f6c9599bb"
 SINGLY_CLIENT_SECRET = "64a0a8d9150a74117757bea8f9ec8077"
 
+SINGLY_CALLBACK_REDIRECT = "/hack/"
+
 ROOT_URLCONF = 'cashbox.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.

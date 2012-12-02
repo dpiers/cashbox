@@ -63,7 +63,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://cashboxio.s3-website-us-east-1.amazonaws.com/'
+STATIC_URL = 'http://s3.amazonaws.com/cashboxio/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -100,6 +100,14 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'singly.backends.SinglyBackend',
+)
+
+SINGLY_CLIENT_ID = "8d3f27a3e6cc74443026444f6c9599bb"
+SINGLY_CLIENT_SECRET = "64a0a8d9150a74117757bea8f9ec8077"
+
 ROOT_URLCONF = 'cashbox.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
@@ -125,6 +133,20 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'gunicorn',
     'cashbox.core',
+    'south',
+    'singly',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+
 )
 
 # A sample logging configuration. The only tangible logging

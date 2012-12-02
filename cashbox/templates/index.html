@@ -63,16 +63,37 @@ border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers<
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span9">
-          <!--<div class="hero-unit">
-            =<h1>Hello, Daniel Piers</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-          </div>-->
+          <div class="hero-unit" style="margin-top:-20px;display:none;">
+            <h1 style="float:left;">Ski Trip 2012</h1>
+             <p style="float:right;"><img src="{{ STATIC_URL }}img/goal.png" id="goal-bar"></p>
+            <p style="float:left;font-size:12px;padding:0;">Created by <a href="#">Ryan Smith</a></p>
+            <p style="clear:both;">Hey everybody! I can't wait for our ski trip. I set up this CashBox so we can pay for the rental car, lodging, and lift tickets. Ya'll are the best. I'm so excited about hanging out with the bears and wild wolves. Maybe, just maybe if we're lucky we'll get to do snow angels.
+            <ul>
+            <li>$140 for lodging for three nights</li>
+            <li>$50 for a lift ticket</li>
+            <li>$25 for gas and car rental</li>
+            </ul>
+            </p>
+            <p style="border-bottom:1px #999 solid; width:auto; margin:-14px 0 0 0;padding:0;"></p>
+            <h2>You still owe: <span id="still-owe">$215</span></h2>
+           
+            <p style="float: left; margin:20px 0 0 0;">
+            <a href="#"><img src="{{ STATIC_URL }}img/pic-katyp.jpg" width="54" height="54" style="margin:0 3px;border:1px solid #CCC;"></a>
+              <a href="#"><img src="{{ STATIC_URL }}img/pic-mikep.jpg" width="54" height="54" style="margin-right:3px;border:1px solid #CCC;"></a>
+              <a href="#"><img src="{{ STATIC_URL }}img/pic-kristenp.jpg" width="54" height="54" style="margin-right:3px;border:1px solid #CCC;"></a>
+              <a href="#"><img src="{{ STATIC_URL }}img/pic-jordanp.jpg" width="54" height="54" style="margin-right:3px;border:1px solid #CCC;"></a>
+              <a href="#"><img id="ryan-thumbnail" src="{{ STATIC_URL }}img/pic-ryan.jpg" width="54" height="54" style="margin-right:3px;border:1px solid #CCC;"></a>
+              <a href="#"><img src="{{ STATIC_URL }}img/pic-jade.jpg" width="54" height="54" style="margin-right:3px;border:1px solid #CCC;"></a>
+              <a href="#"><img src="{{ STATIC_URL }}img/pic-plus.png" width="54" height="54" style="margin-right:0px;border:1px solid #CCC;"></a>
+
+              </p>
+            <p><a style="float:right; margin:30px 0 0 10px; font-size:24px;" class="btn btn-large" href="#" id="beerclub-link">Close</a><a class="btn btn-primary btn-large" style="float:right; margin:30px 0 0 0; font-size:24px;outline:none;" href="#payModal" role="button" data-toggle="modal" id="pay-link">Pay $215</a></p>
+          </div>
           <div class="row-fluid">
             <div class="span4">
             <p><img src="{{ STATIC_URL }}img/dash-cb.png"></p>
               <h2>Ski Trip 2012</h2>
-              <p>$213 due by December 31</p>
+              <p><span id="skitrip-due">$215 due by December 31</span></p>
               <img src="{{ STATIC_URL }}img/pic-jade.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
               <img src="{{ STATIC_URL }}img/pic-mike.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
               <img src="{{ STATIC_URL }}img/pic-jordan.jpg" width="27" height="27" style="margin-right:2px;border:1px solid #CCC;">
@@ -80,7 +101,7 @@ border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers<
               <img src="{{ STATIC_URL }}img/pic-kristen.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
               <img src="{{ STATIC_URL }}img/pic-katy.jpg" width="27" height="27" style="margin-right:0px;border:1px solid #CCC;">
               &nbsp;
-                            <p><a style="float:right;"class="btn" href="skitrip.html">Open</a></p>
+                            <p><a style="float:right;"class="btn" href="#" id="skitrip-link">Open</a></p>
             </div><!--/span-->
             
             
@@ -128,6 +149,14 @@ border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers<
               &nbsp;
               <p><a style="float:right;"class="btn" href="#">Open</a></p>
             </div><!--/span-->
+
+            {% for box in cashboxes %}
+                <h2>{{ box.name }}</h2>
+                <p>{{ box.status }}</p>
+                {% for user in box.users %}
+                    <img src="{{ STATIC_URL }}{{ user.thumbnail_pic }}}" class="user-thumbnail">
+                {% endfor %}
+            {% endfor %}
             
             
             <div class="span4">
@@ -141,7 +170,7 @@ border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers<
               <img src="{{ STATIC_URL }}img/pic-daniel.jpg" width="27" height="27" style="margin-right:3px;border:1px solid #CCC;">
               <img src="{{ STATIC_URL }}img/pic-5.png" width="27" height="27" style="margin-right:0px;border:1px solid #CCC;">
               &nbsp;
-              <p><a style="float:right;"class="btn" href="#">Open</a></p>
+              <p><a style="float:right;" class="btn" href="#" id="beerclub-link">Open</a></p>
             </div><!--/span-->
             
             
@@ -159,7 +188,8 @@ border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers<
             <ul class="nav nav-list">
               <li class="nav-header">Notifications</li>
               <!--<li class="active"><a href="#">Link</a></li>-->
-              <li><a href="#">Jordan Critz paid $213 to Ski Trip 2012.</a></li>
+              <li><a id="paid-notification" href="#" style="display:none;">Daniel Piers paid $215 to Ski Trip 2012.</a></li>
+              <li><a href="#">Jordan Critz paid $215 to Ski Trip 2012.</a></li>
               <li><a href="#">Jordan Critz created an account!</a></li>
               <li><a href="#">Jade Newby and Caitlian Smith joined Ski Trip 2012.</a></li>
               <li><a href="#">Ski Trip 2012 was created.</a></li>
@@ -175,6 +205,21 @@ border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers<
           </div><!--/.well -->
         </div><!--/span-->
       </div><!--/row-->
+
+      <!-- Modal -->
+      <div id="payModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="payModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 style="font-weight:300;"id="payModalLabel">Pay <strong>$215</strong> towards <strong>Ski Trip 2012</strong></h3>
+        </div>
+        <div class="modal-body">
+          <p>An email will be sent to Ryan Smith confirming that you have made your payment.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+          <button class="btn btn-primary" data-dismiss="modal" id="confirm-payment">Confirm Payment</button>
+        </div>
+      </div>
       
 
       <hr>
@@ -189,9 +234,40 @@ border-radius: 2px;"> Logged in as <a href="#" class="navbar-link">Daniel Piers<
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ STATIC_URL }}js/jquery.js"></script>
-    <script src="{{ STATIC_URL }}js/jquery.cookie.js"></script>
-    <script src="{{ STATIC_URL }}js/bootstrap.js"</script>
+    <script src="{{ STATIC_URL }}js/vendor/jquery-1.8.3.min.js"></script>
+    <script src="{{ STATIC_URL }}js/vendor/jquery.cookie.js"></script>
+    <script src="{{ STATIC_URL }}js/vendor/bootstrap.js"></script>
 
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+      $('#skitrip-link').on("click", function() {
+        $('.hero-unit').slideDown();
+      });
+
+      $('#beerclub-link').on("click", function() {
+        $('.hero-unit').slideUp();
+      });
+
+      $('#confirm-payment').on("click", function() {
+        $('#pay-link').html('Paid!');
+        $('#pay-link').removeClass('btn-primary');
+        
+        $('#goal-bar').attr('src', '{{ STATIC_URL}}img/goal_paid.png');
+        
+        $('#ryan-thumbnail').attr('src', '{{ STATIC_URL}}img/pic-ryanp.jpg');
+    
+        $('#still-owe').html('$0');
+        $('#still-owe').css('color', '#3dbda5');
+
+        $('#skitrip-due').html('$1,075 of $1,290 has been paid');
+
+        $('#paid-notification').slideDown(500);
+
+        // lol hackasaurus-rex
+        $.get('/email_ryan/');
+      });      
+    });
+    </script>
   </body>
 </html>

@@ -1,6 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.utils import simplejson
+
+from smtplib import SMTP
+from email.mime.text import MIMEText
+
 import requests
 
 
@@ -36,6 +40,29 @@ def ajax_beta_mailing_list_signup(request):
         'success': True,
         'msg': "Ajax - Beta MailingList Signup - Success",
         'email': email
+        })
+
+    return HttpResponse(data, mimetype='application/json')
+
+def ajax_email_ryan(request):
+
+    msg = MIMEText("Daniel Piers paid $215 to the Ski Trip 2012 CashBox.")
+
+    msg['Subject'] = 'You have received a payment on CashBox'
+    msg['From'] = 'admin@cashbox.io'
+    msg['To'] = 'ryan.marshalls@gmail.com'
+
+    # Send the message via our own SMTP server, but don't include the
+    # envelope header.
+    smtp = SMTP()
+    smtp.connect("cashbox.mailgun.org")
+    smtp.login('admin@cashbox.mailgun.org', 'Qwasd1')
+    smtp.sendmail("admin@cashbox.io", "ryan.marshalls@gmail.com", msg.as_string())
+    smtp.quit()
+
+    data = simplejson.dumps({
+        'success': True,
+        'msg': "Ajax - Email Ryan - Success",
         })
 
     return HttpResponse(data, mimetype='application/json')

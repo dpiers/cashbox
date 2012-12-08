@@ -10,6 +10,8 @@ ADMINS = (
 import os.path
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
+SESSION_COOKIE_SECURE = True
+
 MANAGERS = ADMINS
 
 DATABASES = {
@@ -63,7 +65,7 @@ STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = 'http://cashboxio.s3-website-us-east-1.amazonaws.com/'
+STATIC_URL = 'https://cashboxio.s3.amazonaws.com/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (

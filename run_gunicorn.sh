@@ -1,0 +1,1 @@
+/projects/cashbox/venv/bin/gunicorn_django /projects/cashbox
